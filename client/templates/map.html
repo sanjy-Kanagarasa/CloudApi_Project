@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style1.css">
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Cloud Api Project</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a class="handpointer" ng-click="goToDashboard()">Home</a></li>
+            <li><a class="handpointer" ng-click="goToMap()">Map</a></li>
+            <li><a class="handpointer" ng-click="goToDonate()">Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
+            <li><a class="handpointer" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="map_div" style=" height: 650px;width: 100%;">
+</div>

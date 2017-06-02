@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clour API project</title>
+    <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script>
+        var app = angular.module('ip_app', ['ngRoute']);
+        app.service('UserService', function() {
+            this.user = {};
+
+            this.getUser = function() {
+                return this.user;
+            }
+            this.setUser = function(_user) {
+                this.user = _user;
+            }
+
+        });
+        var ip = "http://localhost:3001";
+
+    </script>
+    <!-- Angular -->
+
+    <script src="controllers/signin.js"></script>
+    <script src="controllers/signup.js"></script>
+    <script src="controllers/main.js"></script>
+    <script src="controllers/map.js"></script>
+    <script src="controllers/donate.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">-->
+    <!--    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>-->
+    <!--<script>
+    function initMap() {}
+</script>-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8UbyTGizIVd3A-FtkMOUXc_VdKdt6fuI">
+
+
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        app.config(function($routeProvider, $locationProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'templates/signin.html',
+                    controller: 'signin'
+                })
+                .when('/signin', {
+                    templateUrl: 'templates/signin.html',
+                    controller: 'signin'
+                })
+                .when('/signup', {
+                    templateUrl: 'templates/signup.html',
+                    controller: 'signup'
+                })
+                .when('/dashboard', {
+                    templateUrl: 'templates/main.html',
+                    controller: 'main'
+                }) /* */
+                .when('/map', {
+                    templateUrl: 'templates/map.html',
+                    controller: 'map'
+                }).when('/donate', {
+                    templateUrl: 'templates/donate.html',
+                    controller: 'donate'
+                }).when('/:param0', {
+                    templateUrl: 'templates/signin.html',
+                    controller: 'signin'
+                }).otherwise({
+                    redirectTo: '/'
+                });
+            //$locationProvider.html5Mode(true);
+        });
+
+    </script>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+</head>
+
+<body ng-app="ip_app">
+    <header>
+
+    </header>
+    <main>
+        <div class="paper" ng-view>
+        </div>
+
+
+        <!--<div ng-controller="MapController">
+    <div id="map"></div>
+
+</div>-->
+
+    </main>
+    <footer>
+
+    </footer>
+
+    <!-- /form -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+</body>
+
+</html>

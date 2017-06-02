@@ -1,0 +1,261 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style1.css">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Cloud Api Project</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a class="handpointer" ng-click="goToDashboard()">Home</a></li>
+            <li><a class="handpointer" ng-click="goToMap()">Map</a></li>
+            <li><a class="handpointer" ng-click="goToDonate()">Donate</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
+            <li><a class="handpointer" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<!--<div class="divPay">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+
+
+                <div class="panel panel-default credit-card-box">
+                    <div class="panel-heading display-table">
+                        <div class="row display-tr">
+                            <h3 class="panel-title display-td">Payment Details</h3>
+                            <div class="display-td">
+                                <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" id="payment-form">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="cardNumber">NAME ON CARD *</label>
+                                        <div class="input-group">
+                                            <input type="tel" class="form-control" name="cardName" placeholder="Your Name" autocomplete="cc-name" required autofocus />
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="cardNumber">CARD NUMBER *</label>
+                                        <div class="input-group">
+                                            <input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required autofocus />
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-xs-6 col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="cardCVC">CV CODE *</label>
+                                        <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-6 pull-right">
+                                    <div class="form-group">
+                                        <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE *</label>
+                                        <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="cardExpiry"><span class="hidden-xs">AMOUNT *</span></label>
+                                        <select class="form-control" required>
+        <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>50</option>
+                                            <option>100</option>
+                                            <option>150</option>
+                                            <option>200</option>
+                                            <option>250</option>
+      </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-6 pull-right">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="sel1">SELECT CURRENCY:</label>
+                                            <select class="form-control" required>
+        <option>eur</option>
+      </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-success btn-lg btn-block" ng-click="donate()">Start Donation</button>
+                                </div>
+                            </div>
+                            <div class="row" style="display:none;">
+                                <div class="col-xs-12">
+                                    <p class="payment-errors"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="panel panel-default credit-card-box">
+
+    <div class="panel-body">
+        <form role="form" id="payment-form">
+            <div class="row">
+                <!-- You can make it whatever width you want. I'm making it full width
+on <= small devices and 4/12 page width on >= medium devices -->
+                <div class="col-xs-9 col-md-4" style="margin-left: 15%;">
+
+
+                    <!-- CREDIT CARD FORM STARTS HERE -->
+                    <div class="panel panel-default credit-card-box">
+                        <div class="panel-heading display-table col-xs-12">
+                            <div class="row display-tr">
+                                <h3 class="panel-title display-td">Payment Details</h3>
+                                <div class="display-td">
+                                    <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" id="payment-form">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="cardNumber">NAME ON CARD *</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" ng-model="cardName" placeholder="Your Name" autocomplete="cc-name" required autofocus />
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label for="cardNumber">CARD NUMBER *</label>
+                                            <div class="input-group">
+                                                <input type="tel" class="form-control" ng-model="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required autofocus />
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-xs-6 col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="cardCVC">CVC CODE *</label>
+                                            <input type="tel" class="form-control" ng-model="cardCvc" placeholder="CVC" autocomplete="cc-csc" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 col-md-8 pull-right">
+                                        <div class="form-group">
+                                            <div class="col-xs-6 col-md-6 ">
+                                                <div class="form-group">
+                                                    <label for="cardExpiry"><span class="hidden-xs"></span><span class="visible-xs-inline">EXP</span> EXP MONTH *</label>
+                                                    <input type="tel" class="form-control" ng-model="cardExpMonth" placeholder="MM" autocomplete="cc-exp" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-md-6 pull-right">
+                                                <div class="form-group">
+                                                    <label for="cardExpiry"><span class="hidden-xs"></span><span class="visible-xs-inline">EXP</span> EXP YEAR *</label>
+                                                    <input type="tel" class="form-control" ng-model="cardExpYear" placeholder="YYYY" autocomplete="cc-exp" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-6">
+                                        <div class="form-group">
+                                            <label for="cardExpiry"><span class="hidden-xs">AMOUNT *</span></label>
+                                            <input type="number" step="0.01" class="form-control" ng-model="amount">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6 pull-right">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="sel1">SELECT CURRENCY:</label>
+                                                <select class="form-control" required>
+        <option>eur</option>
+      </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-success btn-lg btn-block" ng-click="donate()">Start Donation</button>
+                                    </div>
+                                </div>
+                                <div class="row" style="display:none;">
+                                    <div class="col-xs-12">
+                                        <p class="payment-errors"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- CREDIT CARD FORM ENDS HERE -->
+
+
+                </div>
+
+
+
+                <div class="col-xs-12 col-md-4  rounded" style="margin-right: 15%; border-radius: 25px;">
+                    <div class="panel panel-default credit-card-box">
+                        <div class="panel-heading display-table col-xs-12">
+                            <div class="row display-tr">
+                                <h3 class="panel-title display-td">Customers</h3>
+
+                                <h3 class="panel-title display-td pull-right">Amount</h3>
+                            </div>
+                        </div>
+                        <table class="table table-hover ">
+                            <tbody>
+                                <tr ng-repeat="item in customerArray| orderBy : '-amount'" data-target="#myModal">
+                                    <a><span>
+                    <td>{{item.customer}}</td>
+                    <td>{{item.amount}} {{item.currency}}</td>
+               </span> </a>
+                                    <!--                 <td>{{item.foto1}}</td>-->
+                                </tr>
+                                <tr class="success">
+                                    <a><span>
+                    <td>Total</td>
+                    <td>{{ getTotal() }} eur </td>
+               </span> </a>
+                                    <!--                 <td>{{item.foto1}}</td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
